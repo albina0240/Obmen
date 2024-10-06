@@ -15,8 +15,8 @@ def exchange():
             data = response.json()
             if code in data ["rates"]:
                 exchange_rate = data["rates"][code]
-                mb.showinfo("Курс обмена", f"Курс:{exchange_rate}{code} за 1 доллар")
-             else:
+                mb.showinfo("Курс обмена", f"Курс:{exchange_rate:.2f}{code} за 1 доллар")
+            else:
                 mb.showerror("Ошибка!", f"Валюта {code} не найдена")
         except Exception as e:
              mb.showerror("Ощибка", f"Произошла ошибка: {e}")
@@ -33,9 +33,9 @@ window.geometry("360x180")
 Label(text="Введите код валюты").pack(padx = 10, pady = 10)
 
 entry = Entry()
-entry.pack(palx = 10, pady = 10)
+entry.pack(padx = 10, pady = 10)
 
-Button(text="Получить курс обмена валют", command = exchange).pack(palx = 10, pady = 10)
+Button(text="Получить курс обмена валют", command = exchange).pack(padx = 10, pady = 10)
 
 
 window.mainloop()
