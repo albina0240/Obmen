@@ -1,13 +1,9 @@
-from http.client import responses
-from tkinter.ttk import Combobox
-
 import requests
 import json
 from tkinter import *
 from tkinter import messagebox as mb
 from tkinter import ttk
 
-from idna import check_label
 
 def update_c_label(event):
     code = combobox.get()
@@ -25,7 +21,7 @@ def exchange():
             if code in data ["rates"]:
                 exchange_rate = data["rates"][code]
                 c_name = cur[code]
-                mb.showinfo("Курс обмена", f"Курс:{exchange_rate:.2f}{c_name} за 1 доллар")
+                mb.showinfo("Курс обмена", f"Курс: {exchange_rate:.2f}{c_name} за 1 доллар")
             else:
                 mb.showerror("Ошибка!", f"Валюта {code} не найдена")
         except Exception as e:
